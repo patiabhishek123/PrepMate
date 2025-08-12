@@ -16,16 +16,14 @@ const FormField = ({control,name,label,placeholder,type="text"}:FormFieldProps<T
             name={name}
             control={control}
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className='label'>Username</FormLabel>
-                <FormControl>
-                  <Input placeholder="shadcn" {...field} />
-                </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
+                  <FormItem>
+                    <FormLabel className='label'>{label}</FormLabel>
+                    <FormControl>
+                      <Input className='input'
+                      placeholder={placeholder} {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
             )}
           />
 )

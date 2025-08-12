@@ -12,6 +12,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
 import FormField from "./FormField"
+import { useRouter } from "next/navigation"
+
 
  
 
@@ -25,6 +27,8 @@ const authFormSchema=(type:FormType)=>{
 }
 
 const AuthForm = ({ type }:{type:FormType}) => {
+ const router=useRouter();
+
   const formSchema=authFormSchema(type);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,12 +43,14 @@ const AuthForm = ({ type }:{type:FormType}) => {
 
 try {
   if(type==='sign-up')
-    console.log('SIGN IN',values);
+    toast.success('Account created');
+    router.push('/sign-in')
     if(type==='sign-in')
-    console.log('SIGN UP',values);
+    toast.error('Error occured during signing');
 } catch (error) {
   console.log(error);
   toast.error(`There was an error=${error}`);
+  router.push('/')
 }
   }
   const isSignIn=type==='sign-in';
@@ -58,16 +64,29 @@ try {
         <h3 className="flex-center ">Practise interview with Ai</h3>
     
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 mt-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 mt-4 form">
           {!isSignIn && (
             <FormField 
                 control={form.control} 
-                name="name" label="Name" 
+                name="name"
+                label="Name" 
                 placeholder="Your Name"
             />
           )}
-          <p>Email</p>
-          <p>Password</p>
+            <FormField 
+                control={form.control} 
+                name="email"
+                label="Email" 
+                placeholder="Your Email address"
+                type="email"
+            />
+            <FormField 
+                control={form.control} 
+                name="password"
+                label="Password" 
+                placeholder="enter the password"
+                type="password"
+            />
           
           <Button type="submit" className="btn-upload">{isSignIn?'Sign in':'Create an Account'}</Button>
         </form>
