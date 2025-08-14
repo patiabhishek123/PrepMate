@@ -46,11 +46,12 @@ try {
     toast.success('Account created');
     router.push('/sign-in')
     if(type==='sign-in')
-    toast.error('Error occured during signing');
+    router.push('/')
+
 } catch (error) {
   console.log(error);
   toast.error(`There was an error=${error}`);
-  router.push('/')
+  
 }
   }
   const isSignIn=type==='sign-in';
