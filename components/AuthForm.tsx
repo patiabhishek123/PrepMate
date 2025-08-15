@@ -60,7 +60,7 @@ try {
       <div className="flex flex-col gap-6 card py-14 px-10">
         <div className="flex flex-row gap-2 justify-center">
           <Image src="/logo.svg" alt="logo_" height={32} width={32}></Image>
-          <h2 className="text-primary-100">PrepWise</h2>
+          <h2 className="text-primary-100">PrepMate</h2>
         </div>
         <h3 className="flex-center ">Practise interview with Ai</h3>
     
