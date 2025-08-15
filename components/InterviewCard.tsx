@@ -26,22 +26,24 @@ const Interviewcard = ({interviewId,userId,role,type,techstack,createdAt}:Interv
             <Image src="/calendar.svg" alt='calender' width={22} height={22}></Image>
             <p>{formattedDate}</p>
           </div>
-          <div className='flex flex-row gap-2 items-center'
-          >
-            <Image src="/star.svg" alt='star' width={22} height={22}/>
-            <p>
-              {feedback?.totalScore||'---'}/100</p>
+          <div className='flex flex-row gap-2 items-center'>
+          
+              <Image src="/star.svg" alt='star' width={22} height={22}/>
+              <p>
+              {feedback?.totalScore||'---'}/100
+              </p>
           </div>
         </div>
-        <p className='line-clamp-2 mt-5'>
-          {feedback?.finalAssessment||"you haven't taken an Interview yet.take it now to improve you skills"}
-        </p>
+          <p className='line-clamp-2 mt-5'>
+            {feedback?.finalAssessment||"you haven't taken an Interview yet.take it now to improve you skills"}
+          </p>
          <div className='flex flex-row justify-between'>
         
         <DisplayTechIcons techStack={techstack}/>
         <Button className='btn-primary'>
           <Link href={feedback?`/interview/${interviewId}/feedback`:`/interview/${interviewId}`}>
-          {feedback?'Check Feedback':'View assesment'}</Link>
+          {feedback?'Check Feedback':'View assesment'}
+          </Link>
         </Button>
       </div>
       </div>
