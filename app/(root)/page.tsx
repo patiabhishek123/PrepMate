@@ -13,7 +13,7 @@ const Page = () => {
         <div className='flex flex-col gap-6 max-w-lg'>
 
               <h2>
-                get interviewed by ai
+                Get interviewed by ai
               </h2>
 
               <p className='text-lg'>

@@ -15,7 +15,7 @@ const RootLayout = ({children}:{children:ReactNode}) => {
             width={38}
             height={32}
         />
-       <h2 className='gap-5 text-primary-100'>PrepWise</h2>
+       <h2 className='gap-5 text-primary-100'>PrepMate</h2>
         </Link>
 
       </nav>
