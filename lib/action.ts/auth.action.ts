@@ -3,6 +3,7 @@
 
 import { auth, db } from "@/firebase/admin";
 import { cookies } from "next/headers";
+import { success } from "zod";
 
 // Session duration (1 week)
 const SESSION_DURATION = 60 * 60 * 24 * 7;
@@ -21,6 +22,10 @@ try {
   await db.collection('users').doc(uid).set({
     name,email
   })
+  return {
+    success:true,
+    message:"Account Created Successfully! \n Please Sign in"
+  }
 } catch (e:any) {
   console.log('error creating a user',e);
   if(e.code==='auth/email-already-exists')
@@ -32,7 +37,7 @@ try {
   }
   return {
     success:false,
-    message:'Tyhis email is already in use'
+    message:'Th is email is already in use'
   }
 }
 }
